@@ -1,3 +1,5 @@
+# sNaKe gAmE bY vedant
+
 import turtle
 import time
 import random
