@@ -20,7 +20,7 @@ head.color('white')
 head.penup()
 head.goto(0, 0)
 head.direction = 'stop'
-# exact
+
 food = turtle.Turtle()
 colors = random.choice(['red', 'blue', 'green'])
 food.speed(0)
@@ -40,6 +40,8 @@ pen.hideturtle()
 pen.goto(0, 260)
 # pen.write(" SnakeGameByVedant", align='center', font=('algerian', 12, 'bold'))
 pen.write(" Snake_game_by_Vedant\nScore : 0    High Score : 0", align='center', font=('bradley hand itc', 16, 'bold'))
+
+# chkd
 
 
 def go_up():
@@ -63,21 +65,21 @@ def go_right():
 
 
 def move():
-    if head.direction == 'up':
+    if head.direction == "up":
         y = head.ycor()
-        head.sety(y+20)
+        head.sety(y + 20)
 
-    if head.direction == 'down':
+    if head.direction == "down":
         y = head.ycor()
-        head.sety(y-20)
+        head.sety(y - 20)
 
-    if head.direction == 'left':
+    if head.direction == "left":
         x = head.xcor()
-        head.setx(x-20)
+        head.setx(x - 20)
 
-    if head.direction == 'right':
+    if head.direction == "right":
         x = head.xcor()
-        head.setx(x+20)
+        head.setx(x + 20)
 
 
 wn.listen()
@@ -85,7 +87,7 @@ wn.onkeypress(go_up, 'w')
 wn.onkeypress(go_down, 's')
 wn.onkeypress(go_left, 'a')
 wn.onkeypress(go_right, 'd')
-# checked
+
 
 while True:
     wn.update()
@@ -94,10 +96,10 @@ while True:
         time.sleep(1)
         head.goto(0, 0)
         head.direction = 'stop'
-        '''colors = random.choice(['red', 'blue', 'green'])
-        shapes = random.choice(['square', 'circle'])'''
+
         for segment in segments:
             segment.goto(1000, 1000)
+
         segments.clear()
 
         score = 0
@@ -107,6 +109,7 @@ while True:
         pen.write(" Snake_game_by_Vedant\nScore : {}    High Score : {}".format(score, high_score), align='center', font=('bradley hand itc', 16, 'bold'))
 
     if head.distance(food) < 20:
+        
         x = random.randint(-290, 290)
         y = random.randint(-290, 290)
         food.goto(x, y)
@@ -119,10 +122,11 @@ while True:
         segments.append(new_segment)
         delay -= 0.001
         score += 10
-        if score > high_score:
-            high_score = score
-        pen.clear()
-        pen.write(" Snake_game_by_Vedant\nScore : {}    High Score : {}".format(score, high_score), align='center', font=('bradley hand itc', 16, 'bold'))
+            
+    if score > high_score:
+        high_score = score
+    pen.clear()
+    pen.write(" Snake_game_by_Vedant\nScore : {}    High Score : {}".format(score, high_score), align='center', font=('bradley hand itc', 16, 'bold'))
 
     for index in range(len(segments) - 1, 0, -1):
         x = segments[index - 1].xcor()
@@ -131,7 +135,7 @@ while True:
 
     if len(segments) > 0:
         x = head.xcor()
-        y = head.xcor()
+        y = head.ycor()
         segments[0].goto(x, y)
 
     move()
@@ -141,8 +145,6 @@ while True:
             time.sleep(1)
             head.goto(0, 0)
             head.direction = 'stop'
-            '''colors = random.choice(['red', 'blue', 'green'])
-            shapes = random.choice(['square', 'circle'])'''
             for segment in segments:
                 segment.goto(1000, 1000)
             segments.clear()
@@ -150,8 +152,24 @@ while True:
             score = 0
             delay = 0.1
             pen.clear()
-            pen.write(" Snake_game_by_Vedant\nScore : {}    High Score : {}".format(score, high_score), align='center',font=('bradley  hand itc', 16, 'bold'))
+            pen.write(" Snake_game_by_Vedant\nScore : {}    High Score : {}".format(score, high_score), align='center', font=('bradley hand itc', 16, 'bold'))
 
     time.sleep(delay)
 
 wn.mainloop()
+
+
+wn = turtle.Screen()
+wn.title("SnakeGame")
+wn.bgcolor("black")
+wn.setup(width=600, height=650)
+wn.tracer(0)
+
+pen = turtle.Turtle()
+pen.speed(0)
+pen.shape('square')
+pen.color('white')
+pen.penup()
+pen.hideturtle()
+pen.goto(0, 260)
+
